@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../features/auth/screens/login_screen.dart';
 import '../features/auth/screens/signup_screen.dart';
+import '../features/profile/screens/profile_screen.dart';
 import '../providers/auth_provider.dart';
 import 'theme.dart';
 
@@ -29,8 +30,7 @@ class _AuthGate extends ConsumerWidget {
     final authState = ref.watch(authStateChangesProvider);
 
     return authState.when(
-      data: (user) =>
-          user == null ? const _AuthFlow() : const _SignedInPlaceholder(),
+      data: (user) => user == null ? const _AuthFlow() : const ProfileScreen(),
       loading: () =>
           const Scaffold(body: Center(child: CircularProgressIndicator())),
       error: (error, stackTrace) =>
@@ -56,27 +56,5 @@ class _AuthFlowState extends State<_AuthFlow> {
         : LoginScreen(
             onCreateAccountTap: () => setState(() => _showSignup = true),
           );
-  }
-}
-
-class _SignedInPlaceholder extends ConsumerWidget {
-  const _SignedInPlaceholder();
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('WellStride')),
-      body: Center(
-        child: Text(
-          'Signed in',
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => ref.read(authServiceProvider).signOut(),
-        icon: const Icon(Icons.logout),
-        label: const Text('Sign out'),
-      ),
-    );
   }
 }
