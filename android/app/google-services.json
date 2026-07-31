@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1088901190337",
+    "project_id": "wellstride-app",
+    "storage_bucket": "wellstride-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088901190337:android:f6ac27d645c4b5ed95ba40",
+        "android_client_info": {
+          "package_name": "com.wellstride.wellstride_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9_yYekNp_U6YU3P0V8_d3KmXFwa5JepE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
